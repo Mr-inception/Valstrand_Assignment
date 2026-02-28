@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    --primary: 245 80% 60%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 224 71% 4%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 245 80% 60%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 245 80% 60%;
+
+    --radius: 1rem;
+
+    /* Status colors */
+    --status-pending: 220 10% 46%;
+    --status-pending-bg: 220 14% 96%;
+    --status-processing: 245 80% 60%;
+    --status-processing-bg: 245 80% 96%;
+    --status-completed: 142 76% 36%;
+    --status-completed-bg: 142 76% 96%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 245 80% 65%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27% 16.9%;
+    --muted-foreground: 217 19% 70%;
+    --accent: 215 27% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27% 16.9%;
+    --input: 215 27% 16.9%;
+    --ring: 245 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  }
+
+  .mesh-bg {
+    background-color: hsla(220, 33%, 98%, 1);
+    background-image:
+      radial-gradient(at 0% 0%, hsla(245, 80%, 60%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(142, 76%, 36%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(245, 80%, 60%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(142, 76%, 36%, 0.05) 0px, transparent 50%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[#8B5CF6];
+  }
+
+  @keyframes pulse-badge {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .animate-pulse-badge {
+    animation: pulse-badge 1.5s ease-in-out infinite;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(300%);
+    }
+  }
+}
